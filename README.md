@@ -46,6 +46,9 @@ WebService.Instance.Post("https://853lab.com/20190203011324.png",postDictionary,
     Lindinia = ((DownloadHandlerTexture)downloadHandler).texture;
 });
 ```
+### References:
+* [https://github.com/mw-felker/WebServicesForUnity3D](https://github.com/mw-felker/WebServicesForUnity3D)
+* [https://github.com/Bunny83/SimpleJSON](https://github.com/Bunny83/SimpleJSON)
 # 中文说明
 Unity的UnityWebRequest简单 get / post 包装。
 ### 使用方法：
