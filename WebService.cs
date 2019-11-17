@@ -1,7 +1,12 @@
 ﻿/*
 	Web Service
 
-	参考至以下的代码：
+	Simple Get / Post / Put C# wrapper for the UnityWebRequest in Unity 3D.
+
+	Link:
+		https://github.com/Sonic853/WebServicesForUnity
+
+	References:
 		https://github.com/mw-felker/WebServicesForUnity3D
 		https://github.com/Bunny83/SimpleJSON
 
