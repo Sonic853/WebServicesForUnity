@@ -9,15 +9,14 @@ Unity的UnityWebRequest简单 get / post 包装。
 //↓ 创建一个string
 string someone;
 
-//↓ New 一个WebService
-WebService webService = new WebService();
-webService.Get("http://127.0.0.1:853/index.php?user=Sonic853",(downloadHandler)=>{
+//↓ 开始发送Get
+WebService.Instance.Get("http://127.0.0.1:853/index.php?user=Sonic853",(downloadHandler)=>{
     //↓ 得到的东西放到someone里
     someone = downloadHandler.text;
     print(someone);
 });
 ```
-#### 返回JSON（Post形式，带上Json数据发送）：
+#### 返回JSON（Put形式，带上Json数据发送）：
 ```
 //↓ 创建一个要发送的Json
 JSONNode jsonData = JSON.Parse("{}");
@@ -26,9 +25,8 @@ jsonData["Sonic853"].Value = "Is Me!";
 //↓ 创建一个要获得返回的Json
 JSONNode responseJSON;
 
-//↓ New 一个WebService
-WebService webService = new WebService();
-webService.Post("http://127.0.0.1:853/index.php",jsonData,(downloadHandler)=>{
+//↓ 开始发送Put
+WebService.Instance.Put("http://127.0.0.1:853/index.php",jsonData,(downloadHandler)=>{
     //↓ 获得返回的Json
     responseJSON = JSON.Parse(downloadHandler.text);
 });
@@ -42,19 +40,10 @@ postDictionary.Add("Lindinia","My Love.");
 //创建一个Texture
 Texture Lindinia;
 
-//↓ New 一个WebService
-WebService webService = new WebService();
-webService.Post("https://853lab.com/20190203011324.png",postDictionary,(downloadHandler)=>{
+//↓ 开始发送Post
+WebService.Instance.Post("https://853lab.com/20190203011324.png",postDictionary,(downloadHandler)=>{
     //↓ 获得返回的图片写入Texture里
     Lindinia = ((DownloadHandlerTexture)downloadHandler).texture;
-});
-```
-#### 不知道会不会出问题的用法：
-```
-string someone;
-WebService.Instance.Get("http://127.0.0.1:853/index.php",(downloadHandler)=>{
-    someone = downloadHandler.text;
-    print(someone);
 });
 ```
 PS: 能力有限，只会弄成这样。。。或者帮忙完善orz
