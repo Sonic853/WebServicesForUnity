@@ -5,40 +5,11 @@
 		https://github.com/mw-felker/WebServicesForUnity3D
 		https://github.com/Bunny83/SimpleJSON
 
-	将UnityWebRequest封装成简单的post/get请求，带CallBack回调。
-	回调的东西可以转为string，json或Texture。
-	用法：
-		String（Get形式：
-			string someone;
-			WebService.Instance.Get("http://127.0.0.1:853/index.php?user=Sonic853",(downloadHandler)=>{
-				someone = downloadHandler.text;
-				print(someone);
-			});
-		JSON（Put形式，带上Json数据：
-			JSONNode jsonData = JSON.Parse("{}");
-			jsonData["Sonic853"].Value = "Is Me!";
-			JSONNode responseJSON;
-			WebService.Instance.Put("http://127.0.0.1:853/index.php",jsonData,(downloadHandler)=>{
-				responseJSON = JSON.Parse(downloadHandler.text);
-			});
-		Texture（Post形式，带上表单←（应该叫做字典？）：
-			Dictionary<string,string> postDictionary = new Dictionary<string, string>();
-			postDictionary.Add("Lindinia","My Love.");
-			Texture Lindinia;
-			WebService.Instance.Post("https://853lab.com/20190203011324.png",postDictionary,(downloadHandler)=>{
-				Lindinia = ((DownloadHandlerTexture)downloadHandler).texture;
-			});
-
-	能力有限，只会弄成这样。。。或者帮忙完善orz
-	（感觉自己封装能力像坨屎一样，但能用
-
  */
-using System; 
 using UnityEngine;
 using System.Collections; 
 using System.Collections.Generic;
 using SimpleJSON;
-using System.Linq;
 using UnityEngine.Networking;
 
 public class WebService : MonoBehaviour
